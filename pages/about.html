@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>about.json</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Fira Code', 'Courier New', monospace;
+            font-size: 0.95rem;
+
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+
+            padding: 2rem 3rem;
+            line-height: 1.8;
+        }
+
+        article {
+            max-width: 1000px;
+            counter-reset: line-number;
+        }
+
+        article::before {
+            content: '{';
+
+            display: block;
+            margin-bottom: 1rem;
+
+            color: #ffd700;
+            font-size: 2rem;
+            font-weight: bold;
+
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        article::after {
+            content: '}';
+
+            display: block;
+            margin-top: 3rem;
+
+            color: #ffd700;
+            font-size: 2rem;
+            font-weight: bold;
+
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+    </style>
+    <link rel="stylesheet" href="../css/about.css">
+</head>
+<body>
+    <article>
+        <h2>About Me</h2>
+
+        <section>
+            <h3>Background</h3>
+
+            <picture>
+                <!-- For mobile -->
+                <source type="image/avif" srcset="../assets/avif/geisel-cropped.avif" alt="Geisel Library at UC San Diego" media="(max-width: 600px)">
+                <source type="image/webp" srcset="../assets/webp/geisel-cropped.webp" alt="Geisel Library at UC San Diego" media="(max-width: 600px)">
+                <!-- For desktop  -->
+                <source type="image/avif" srcset="../assets/avif/geisel.avif" alt="Geisel Library at UC San Diego">
+                <source type="image/webp" srcset="../assets/webp/geisel.webp" alt="Geisel Library at UC San Diego">
+                <!-- Fallback -->
+                <img src="../assets/geisel-cropped.jpg" alt="Geisel Library at UC San Diego">
+            </picture>
+            
+            <p>
+                I'm currently pursuing my <strong>B.S. in Computer Science</strong>
+                at <abbr title="University of California, San Diego">UCSD</abbr>.
+            </p>
+        </section>
+
+        <section>
+            <h4>Language Proficiency</h4>
+            
+            <div class="language-progress">
+                <label for="python">Python</label>
+                <progress value="90" max="100">90%</progress>
+                <br>
+
+                <label for="cpp">C++</label>
+                <progress value="80" max="100">80%</progress>
+                <br>
+
+                <label for="java">Java</label>
+                <progress value="30" max="100">30%</progress>
+                <br>
+
+                <label for="javascript">Javascript</label>
+                <progress value="50" max="100">50%</progress>
+                <br>
+                
+                <label for="htmlcss">HTML/CSS</label>
+                <progress value="80" max="100">80%</progress>
+                <br>
+
+                <label for="sql">SQL</label>
+                <progress value="20" max="100">20%</progress>
+                <br>
+            </div>
+        </section>
+
+        <section>
+            <h4>Technologies</h4>
+
+            <dl>
+                <dt>Frameworks</dt>
+                <dd>React, Tailwind, MongoDB, Node.js, Express.js, Jest, Puppeteer</dd>
+
+                <dt>Libraries</dt>
+                <dd>OpenCV, PyTorch, TensorFlow, Scikit-learn, NumPy</dd>
+
+                <dt>Tools</dt>
+                <dd>Git, Docker, Unittest, PostgreSQL, Figma, VirusTotal, NGINX, Wireshark, Unreal Engine 5</dd>
+            </dl>
+        </section>
+
+        <section>
+            <h3>Key Skills</h3>
+            <ul>
+                <li>Full-Stack Web Development</li>
+                <li>Network System Design & Troubleshooting</li>
+                <li>Real-Time Control Systems</li>
+                <li>Machine Learning Pipeline Development</li>
+                <li>Game Mechanics Design & Implementation</li>
+                <li>ETL Pipeline Architecture</li>
+                <li>Team Leadership & Project Management</li>
+                <li>Technical Mentoring & Teaching</li>
+            </ul>
+        </section>
+
+        <aside>
+            <h3>Fun Facts</h3>
+            <ol>
+                <li>30 mins coffee session is part of my morning routine</li>
+                <li>Weekend amateur badminton player</li>
+                <li>I can eat buldak spicy noodles without drinking water</li>
+            </ol>
+        </aside>
+    </article>
+</body>
+</html>
