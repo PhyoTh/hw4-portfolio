@@ -4,7 +4,61 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>projects.ipynb</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap');
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: 'Fira Code', 'Courier New', monospace;
+                background-color: #1e1e1e;
+                color: #d4d4d4;
+
+                padding: 2rem 3rem;
+                line-height: 1.8;
+                font-size: 0.9rem;
+
+                transition: background-color 0.3s ease, color 0.3s ease;
+            }
+            
+            article {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            /* animation styling */
+            .project-card {
+                animation: fadeInUp 0.6s ease-out forwards;
+                opacity: 0;
+            }
+            .project-card:nth-child(2) {
+                animation-delay: 0.1s;
+            }
+            .project-card:nth-child(3) {
+                animation-delay: 0.2s;
+            }
+            .project-card:nth-child(4) {
+                animation-delay: 0.3s;
+            }
+            .project-card:nth-child(5) {
+                animation-delay: 0.4s;
+            }
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        </style>
         <link rel="stylesheet" href="../css/projects.css" />
+        <script src="../js/theme.js"></script>
     </head>
     <body>
         <article>
@@ -12,7 +66,7 @@
 
             <section class="project-card" data-index="1">
                 <header class="project-header">
-                    <h2>Assembly Typing Game</h2>
+                    <h2># Assembly Typing Game</h2>
                 </header>
                 <p class="project-description">
                     A retro-style typing game built entirely in x86 Assembly
@@ -73,7 +127,7 @@
                     <iframe
                         width="560"
                         height="315"
-                        src="https://www.youtube.com/embed/qofZkrQc83M"
+                        src="https://www.youtube.com/embed/RbQpmkbzOAI"
                         title="Graphing Calculator Demo"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen

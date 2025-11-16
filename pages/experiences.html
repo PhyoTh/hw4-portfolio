@@ -4,7 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>experiences.log</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Fira Code', 'Courier New', monospace;
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+        
+            padding: 2rem 3rem;
+            line-height: 1.8;
+            font-size: 0.9rem;
+        
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* animation on page load */
+        section {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+        section:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+        section:nth-child(4) {
+            animation-delay: 0.2s;
+        }
+        section:nth-child(6) {
+            animation-delay: 0.3s;
+        }
+        section:nth-child(8) {
+            animation-delay: 0.4s;
+        }
+        section:nth-child(10) {
+            animation-delay: 0.5s;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
     <link rel="stylesheet" href="../css/experiences.css">
+    <script src="../js/theme.js"></script>
 </head>
 <body>
     <article>
@@ -13,7 +66,7 @@
         <section>
             <h3>Game Developer Intern</h3>
             <p>
-                <strong>Qualcomm Institute</strong> | San Diego, CA<br>
+                <strong>UC San Diego - Qualcomm Institute</strong> | San Diego, CA<br>
                 <time datetime="2025-09">September 2025</time> - Present
             </p>
             <ul>
@@ -47,7 +100,7 @@
         <section>
             <h3>Applied ML Research Engineer - Autonomy</h3>
             <p>
-                <strong>SEElab-UC San Diego</strong> | Remote<br>
+                <strong>UC San Diego - SEElab</strong> | Remote<br>
                 <time datetime="2025-08">August 2025</time> - Present
             </p>
             <ul>
@@ -64,7 +117,7 @@
         <section>
             <h3>Lead Software Engineer - NASA Robotics Alliance Project</h3>
             <p>
-                <strong>Lancer Lumineers</strong> | Pasadena, CA<br>
+                <strong>Pasadena City College - Lancer Lumineers</strong> | Pasadena, CA<br>
                 <time datetime="2023-08">August 2023</time> - <time datetime="2024-06">June 2024</time>
             </p>
             <ul>

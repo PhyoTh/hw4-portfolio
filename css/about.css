@@ -1,29 +1,311 @@
 :root {
     --primary-background: #1e1e1e;
     --secondary-background: #2a2a2a;
+
     --text-color: #d4d4d4;
     --accent-color: #007acc;
+
+    --teal: #4ec9b0;
+    --blue: #569cd6;
+    --cyan: #9cdcfe;
+    --orange: #ce9178;
+    --yellow: #ffd700;
+    --green: #b5cea8;
+    --gray-border: #3e3e42;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+/* everything about theme */
+body.light-theme {
+    background-color: #ffffff;
+    color: #3a3a3a;
 }
 
-body {
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    background-color: var(--primary-background);
-    color: var(--text-color);
-    padding: 2rem;
-    line-height: 1.6;
+body.light-theme article::before,
+body.light-theme article::after {
+    color: #ffd700;
 }
 
-h2, h3 {
-    margin-bottom: 1rem;
-    color: var(--accent-color);
+body.light-theme section {
+    border-left-color: #d4d4d4;
+}
+body.light-theme section::before {
+    color: #8a8a8a;
+}
+body.light-theme p {
+    color: #3a3a3a;
 }
 
+body.light-theme picture img {
+    border-color: var(--blue);
+    box-shadow: 0 8px 30px rgba(78, 201, 176, 0.3);
+}
+body.light-theme progress::-webkit-progress-bar {
+    background-color: #e8e8e8;
+    border-color: #d4d4d4;
+}
+body.light-theme aside {
+    background: linear-gradient(135deg, #ececec 0%, #f8f8f8 100%);
+    border-color: var(--blue);
+    box-shadow: 0 4px 20px rgba(86, 156, 214, 0.25);
+}
+
+
+/* page header */
+h2 {
+    color: var(--orange);
+
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    padding-left: 0;
+}
+
+section > h3 {
+    font-size: 1.4rem;
+    color: var(--teal);
+
+    margin: 2rem 0 1.5rem;
+    padding-left: 2rem;
+    position: relative;
+}
+
+section > h3::after {
+    content: ': [';
+    color: var(--yellow);
+}
+
+/* sections */
 section {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
+    padding-left: 2rem;
+    position: relative;
+
+    border-left: 2px solid var(--gray-border);
+}
+
+section::before {
+    counter-increment: line-number;
+    content: counter(line-number);
+
+    position: absolute;
+    left: -2.5rem;
+    width: 2rem;
+
+    color: var(--gray-text);
+    font-size: 0.85rem;
+
+    text-align: right;
+}
+
+section::after {
+    content: '],';
+    font-size: 1.4rem;
+    font-weight: 600;
+
+    display: block;
+    color: var(--yellow);
+
+    padding-left: 0;
+    margin-top: 1rem;
+}
+
+/* picture animation */
+picture {
+    display: block;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+picture img {
+    max-width: 100%;
+    height: auto;
+
+    border-radius: 8px;
+    border: 3px solid var(--blue);
+
+    box-shadow: 0 8px 30px rgba(78, 201, 176, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+picture img:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(78, 201, 176, 0.5);
+}
+
+/* formating texts to look more json-like */
+p {
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+strong {
+    color: var(--orange);
+}
+
+abbr {
+    color: var(--green);
+    cursor: help;
+}
+
+/* progress bars styling */
+.language-progress {
+    padding-left: 2rem;
+}
+
+.language-progress label {
+    display: inline-block;
+    width: 150px;
+
+    color: var(--cyan);
+    margin-right: 1rem;
+    vertical-align: middle;
+}
+
+progress {
+    width: calc(100% - 180px);
+
+    height: 1.5rem;
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
+    vertical-align: middle;
+    
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #2d2d30;
+    border-radius: 4px;
+    border: 1px solid var(--gray-border);
+}
+
+progress::-webkit-progress-value {
+    background: linear-gradient(90deg, var(--blue), var(--teal));
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(78, 201, 176, 0.4);
+}
+
+progress::-moz-progress-bar {
+    background: linear-gradient(90deg, var(--blue), var(--teal));
+    border-radius: 4px;
+}
+
+/* Definition Lists */
+dl {
+    padding-left: 2rem;
+    margin: 1rem 0;
+}
+
+dt {
+    color: var(--cyan);
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+dd {
+    color: var(--orange);
+    padding-left: 2rem;
+    margin-left: 0;
+    margin-bottom: 0.5rem;
+}
+
+/* lists */
+ul, ol {
+    padding-left: 4rem; 
+    margin: 1rem 0;
+}
+
+ul li, ol li {
+    padding-left: 1rem; 
+    margin: 0.75rem 0;
+}
+
+ul li::marker {
+    color: var(--teal);
+}
+
+ol {
+    list-style: decimal;
+}
+
+ol li::marker {
+    color: var(--green);
+}
+
+/* aside */
+aside {
+    position: relative;
+    padding: 2rem;
+    margin: 3rem 0;
+
+    border: 2px solid var(--blue);
+    border-radius: 8px;
+    
+    background: linear-gradient(135deg, #2d2d30 0%, #252526 100%);
+    box-shadow: 0 4px 20px rgba(86, 156, 214, 0.3);
+}
+
+aside > h3 {
+    font-size: 1.4rem;
+    color: var(--teal);
+}
+
+/* media Queries */
+@media (max-width: 768px) {
+    body {
+        padding: 1.5rem 2rem;
+        font-size: 0.9rem;
+    }
+    
+    h2, section > h3, section {
+        padding-left: 1rem;
+    }
+    
+    section::before {
+        left: -1.5rem;
+    }
+    
+    .language-progress label {
+        width: 120px;
+    }
+    
+    progress {
+        width: calc(100% - 136px);
+        height: 1.25rem;
+    }
+    
+    picture img {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 1rem 1.5rem;
+        font-size: 0.85rem;
+    }
+    
+    article::before, article::after {
+        font-size: 1.5rem;
+    }
+    
+    h2 {
+        font-size: 1.3rem;
+    }
+    
+    section > h3 {
+        font-size: 1.1rem;
+    }
+    
+    .language-progress label {
+        display: block;
+        width: 100%;
+        margin-bottom: 0.25rem;
+    }
+    
+    progress {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
 }

@@ -1,29 +1,122 @@
-:root {
-    --primary-background: #1e1e1e;
-    --secondary-background: #2a2a2a;
-    --text-color: #d4d4d4;
-    --accent-color: #007acc;
+/* everything about light theme*/
+body.light-theme {
+    background-color: #ffffff;
+    color: #1e1e1e;
+}
+body.light-theme form {
+    background-color: #f5f5f5;
+    border-color: #d4d4d4;
+}
+body.light-theme legend {
+    border-bottom-color: #d4d4d4;
+}
+body.light-theme label {
+    color: #3a3a3a;
+}
+body.light-theme input[type="text"],
+body.light-theme input[type="email"],
+body.light-theme input[type="tel"],
+body.light-theme textarea {
+    background-color: #ffffff;
+    border-color: #d4d4d4;
+    color: #3a3a3a;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-body {
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    background-color: var(--primary-background);
-    color: var(--text-color);
+/* main contact form stylingss */
+form {
     padding: 2rem;
-    line-height: 1.6;
+    width: 100%;
+    max-width: 600px;
+
+    background-color: var(--secondary-background);
+    border-radius: 8px;
+    border: 1px solid #3e3e42;
 }
 
-h2, h3 {
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+legend {
+    width: 100%;
     margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+
+    font-size: 1.5rem;
+    font-weight: bold;
     color: var(--accent-color);
+
+    border-bottom: 1px solid #3e3e42;
 }
 
-section {
-    margin-bottom: 2rem;
+label {
+    font-weight: bold;
+    color: #d4d4d4;
+    margin-bottom: -1.5rem; 
+}
+label:has(+ :required)::after {
+    content: " *";
+    color: #ff6b6b;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    
+    color: var(--text-color);
+    background-color: #2d2d30;
+
+    border: 1px solid #3e3e42;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+button[type="submit"] {
+    align-self: flex-start;
+    padding: 0.75rem 1.5rem;
+
+    background-color: var(--accent-color);
+    color: white;
+    font-size: 1rem;
+
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #005a9e;
+}
+
+/* output styling */
+output {
+    display: block;
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+output[name="error-output"] {
+    background-color: #5c2323;
+    color: #f1b0b0;
+}
+output[name="info-output"] {
+    background-color: #23425c;
+    color: #a6d2ff;
 }

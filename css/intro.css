@@ -12,6 +12,34 @@
     --spacing-unit: 1rem;
 }
 
+
+/* everything about theme */
+body.light-theme {
+    background-color: #ffffff;
+    color: #3a3a3a;
+}
+body.light-theme h2 {
+    color: #2a2a2a;
+}
+body.light-theme section p:first-of-type strong {
+    color: #2a2a2a;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+}
+
+body.light-theme stats-card {
+    background: linear-gradient(135deg, #ececec 0%, #f8f8f8 100%);
+    border-color: #007acc;
+    box-shadow: 0 4px 20px rgba(0, 122, 204, 0.12);
+}
+body.light-theme stats-card li {
+    color: #3a3a3a;
+}
+body.light-theme article > p {
+    color: #7a7a7a;
+}
+
+
+/* main styling starts here */
 article {
     max-width: 900px;
 }

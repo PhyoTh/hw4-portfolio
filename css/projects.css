@@ -1,29 +1,247 @@
-:root {
-    --primary-background: #1e1e1e;
-    --secondary-background: #2a2a2a;
-    --text-color: #d4d4d4;
-    --accent-color: #007acc;
+/* everytihgn about theme */
+body.light-theme {
+    background-color: #ffffff;
+    color: #3a3a3a;
+}
+body.light-theme .project-card {
+    background: linear-gradient(135deg, #ececec 0%, #f8f8f8 100%);
+    border-color: #d4d4d4;
+    border-left-color: #569cd6;
+}
+body.light-theme .project-card:hover {
+    box-shadow: 0 8px 30px rgba(86, 156, 214, 0.3);
+}
+body.light-theme .project-card::before {
+    background: #f5f5f5;
+    color: #569cd6;
+    border-color: #569cd6;
+}
+body.light-theme .project-description {
+    color: #3a3a3a;
+    border-left-color: #d4d4d4;
+}
+body.light-theme .project-pitch {
+    background: #ececec;
+    border-left-color: #4ec9b0;
+}
+body.light-theme .project-pitch p {
+    color: #3a3a3a;
+}
+body.light-theme .tech-stack {
+    border-top-color: #d4d4d4;
+}
+body.light-theme .tech-stack span {
+    background: #f5f5f5;
+    border-color: #d4d4d4;
+}
+body.light-theme .video-container {
+    border-color: #d4d4d4;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-body {
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    background-color: var(--primary-background);
-    color: var(--text-color);
-    padding: 2rem;
-    line-height: 1.6;
-}
-
-h2, h3 {
-    margin-bottom: 1rem;
-    color: var(--accent-color);
-}
-
-section {
+/* main projects stylings */
+h1 {
+    position: relative;
     margin-bottom: 2rem;
+    padding-left: 2rem;
+
+    color: #4ec9b0;
+    font-size: 2rem;
+}
+
+.project-card {
+    position: relative;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    
+    background: linear-gradient(135deg, #252526 0%, #2d2d30 100%);
+    border: 1px solid #3e3e42;
+    border-left: 4px solid #569cd6;
+    border-radius: 8px;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(86, 156, 214, 0.3);
+    border-left-color: #4ec9b0;
+}
+
+.project-card::before {
+    content: '[' attr(data-index) ']';
+    position: absolute;
+    padding: 0.25rem 0.75rem;
+    top: -0.75rem;
+    left: 1rem;
+
+    background: #1e1e1e;
+    color: #569cd6;
+
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 3px;
+    border: 1px solid #569cd6;
+}
+
+.project-header h2 {
+    color: #6a9955;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.project-description {
+    color: white;
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+
+    padding-left: 1rem;
+    border-left: 3px solid #3e3e42;
+}
+
+.video-container {
+    position: relative;
+    margin: 1.5rem 0;
+    padding-bottom: 56.25%;
+    height: 0;
+
+    overflow: hidden;
+    border-radius: 6px;
+    border: 2px solid #3e3e42;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.project-pitch {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+
+    background: #2d2d30;
+    border-radius: 6px;
+    border-left: 3px solid #4ec9b0;
+}
+
+.project-pitch h3 {
+    color: #4ec9b0;
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.project-pitch p {
+    color: #d4d4d4;
+    line-height: 1.7;
+}
+
+.tech-stack {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #3e3e42;
+}
+
+.tech-stack span {
+    display: inline-block;
+
+    background: #1e1e1e;
+    color: #b5cea8;
+
+    padding: 0.4rem 0.75rem;
+    margin: 0.25rem 0.25rem 0.25rem 0;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    border: 1px solid #3e3e42;
+}
+
+.tech-stack span::before {
+    content: '▸ ';
+    color: #569cd6;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 1.5rem 2rem;
+        font-size: 0.85rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        padding-left: 1.5rem;
+    }
+
+    .project-card {
+        padding: 1.5rem;
+    }
+
+    .project-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .project-description {
+        padding-left: 0.5rem;
+    }
+
+    .tech-stack span {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 1rem 1.5rem;
+        font-size: 0.8rem;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+        padding-left: 1rem;
+    }
+
+    h1::before {
+        font-size: 0.65rem;
+    }
+
+    .project-card {
+        padding: 1rem;
+    }
+
+    .project-card::before {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.5rem;
+    }
+
+    .project-header h2 {
+        font-size: 1rem;
+    }
+
+    .project-description {
+        padding-left: 0.25rem;
+        font-size: 0.85rem;
+    }
+
+    .project-pitch {
+        padding: 1rem;
+    }
+
+    .project-pitch h3 {
+        font-size: 0.9rem;
+    }
+
+    .tech-stack span {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.4rem;
+    }
+
+    .video-container::before {
+        font-size: 0.75rem;
+        top: -1.25rem;
+    }
 }

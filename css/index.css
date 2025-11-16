@@ -1,3 +1,65 @@
+/* everything about theme */
+body.light-theme {
+    --primary-background: #e8e8e8;
+    --secondary-background: #f5f5f5;
+    --tertiary-background: #dcdcdc;
+    --hover-background: #d4d4d4;
+    --active-background: #c8c8c8;
+    --text-color: #3a3a3a;
+}
+body.light-theme header {
+    border-bottom-color: #c4c4c4;
+}
+body.light-theme header > span {
+    background-color: #dcdcdc;
+    border-color: #b4b4b4;
+    color: #3a3a3a;
+}
+body.light-theme aside {
+    border-right-color: #c4c4c4;
+}
+body.light-theme aside nav img {
+    filter: brightness(0) saturate(100%) invert(20%);
+}
+body.light-theme main file-explorer {
+    background-color: #efefef;
+    border-right-color: #d4d4d4;
+}
+body.light-theme main file-explorer img {
+    filter: brightness(0) saturate(100%) invert(20%);
+}
+body.light-theme .toggle-thumb {
+    left: calc(100% - 1.25rem);
+}
+
+
+/* view transition api stylings */
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: 0.2s;
+}
+::view-transition-old(root) {
+    animation: blur-out 0.2s ease-out;
+}
+::view-transition-new(root) {
+    animation: blur-in 0.2s ease-in;
+}
+
+@keyframes blur-out {
+    to {
+        opacity: 0;
+        filter: blur(10px);
+    }
+}
+@keyframes blur-in {
+    from {
+        opacity: 0;
+        filter: blur(10px);
+    }
+}
+
+
+/* everything about theme */
 header {
     grid-area: header;
 
@@ -5,6 +67,9 @@ header {
     align-items: center;
     justify-content: center;
     border-bottom: 0.0625rem solid black;
+    position: relative;
+
+    transition: border-color 0.3s ease;
 }
 
 header > span {
@@ -18,6 +83,8 @@ header > span {
     background-color: var(--tertiary-background, #5f5f5f);
     border: 0.001rem solid white;
     border-radius: 0.5rem;
+
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 /* nav sidebar */
@@ -29,6 +96,8 @@ aside {
     padding: 0.5rem 0;
 
     border-right: 0.0625rem solid black;
+
+    transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
 aside nav ul {
@@ -84,6 +153,8 @@ main file-explorer {
     background-color: var(--secondary-background, #2a2a2a);
     border-right: 0.0625rem solid #1a1a1a;
     font-size: 0.8125rem;
+
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 main file-explorer ul {
@@ -145,6 +216,8 @@ footer {
 
     background-color: var(--secondary-background, #2a2a2a);
     font-size: 0.75rem;
+
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* media query for tablet */
@@ -208,6 +281,22 @@ footer {
 
 /* media query for mobile */
 @media (max-width: 480px) {
+    #theme-toggle {
+        right: 0.5rem;
+        padding: 0.25rem;
+    }
+    
+    .toggle-track {
+        width: 2.5rem;
+        height: 1.25rem;
+    }
+    
+    .toggle-thumb {
+        width: 0.875rem;
+        height: 0.875rem;
+        left: 0.125rem;
+    }
+
     body {
         grid-template-rows: 2.5rem 1fr 1.125rem; /* Increased header height */
         grid-template-columns: 2rem 0 1fr !important;
@@ -221,16 +310,20 @@ footer {
     body:has(#file-explorer-toggle:not(:checked)) {
         grid-template-columns: 2rem 0 1fr !important;
     }
+        
+    body.light-theme .toggle-thumb {
+        left: calc(100% - 1rem);
+    }
 
     header > span {
         font-size: 0.75rem;
-        padding: 0.3rem 0.5rem; /* More vertical padding */
-        width: min(75%, 18rem); /* Narrower and responsive */
+        padding: 0.3rem 0.5rem; /* more vertical padding */
+        width: min(75%, 18rem); /* narrower and responsive */
     }
 
     aside {
         width: 2rem;
-        height: calc(100dvh - 3.625rem); /* Adjusted for new header height */
+        height: calc(100dvh - 3.625rem); /* adjusted for new header height */
     }
 
     aside nav button,
@@ -248,7 +341,7 @@ footer {
     main file-explorer {
         position: fixed;
         left: 2rem;
-        top: 2.5rem; /* Adjusted for new header height */
+        top: 2.5rem; /* adjusted for new header height */
         bottom: 1.125rem;
         width: 12rem;
         z-index: 1000;
@@ -261,7 +354,7 @@ footer {
         transition: transform 0.3s ease;
     }
 
-    /* Show file explorer as overlay when checked */
+    /* show file explorer as overlay when checked */
     body:has(#file-explorer-toggle:checked) main file-explorer {
         display: block;
         transform: translateX(0);

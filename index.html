@@ -32,7 +32,9 @@
                 color: var(--text-color);
                 height: 100dvh; /* dynamic viewport height */
                 overflow: hidden;
-
+                
+                transition: background-color 0.3s ease, color 0.3s ease;
+        
                 /* for layout */
                 display: grid;
                 grid-template-columns: 3rem 13.5rem 1fr;
@@ -61,9 +63,53 @@
                 li:has(#file-explorer-toggle) {
                 border-left: 2px solid white;
             }
+
+            #theme-toggle {
+                position: absolute;
+                right: 1rem;
+                
+                background: transparent;
+                border: none;
+                cursor: pointer;
+                padding: 0.5rem;
+                
+                transition: transform 0.2s ease;
+            }
+
+            #theme-toggle:hover {
+                transform: scale(1.05);
+            }
+
+            .toggle-track {
+                width: 3rem;
+                height: 1.5rem;
+                
+                background: var(--tertiary-background);
+                border: 2px solid #3e3e42;
+                border-radius: 1rem;
+                
+                position: relative;
+                transition: background-color 0.3s ease;
+            }
+
+            .toggle-thumb {
+                width: 1rem;
+                height: 1rem;
+                
+                background: var(--text-color);
+                border-radius: 50%;
+                
+                position: absolute;
+                top: 50%;
+                left: 0.25rem;
+                transform: translateY(-50%);
+                
+                transition: left 0.3s ease, background-color 0.3s ease;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            }
         </style>
         <link rel="stylesheet" href="css/index.css" />
-    </head>
+        <script src="js/theme.js"></script>    </head>
     <body>
         <noscript>
             <p>JavaScript is disabled. Some features may not work properly</p>
@@ -71,6 +117,11 @@
 
         <header>
             <span>Phyo Thant's Portfolio</span>
+            <button id="theme-toggle" aria-label="Toggle theme">
+                <div class="toggle-track">
+                    <div class="toggle-thumb"></div>
+                </div>
+            </button>
         </header>
 
         <!-- nav side bar -->
@@ -203,14 +254,25 @@
                         </a>
                     </li>
                     <li>
-                        <a href="pages/contact.html" target="content-frame">
+                        <a href="pages/form-no-js.html" target="content-frame">
                             <img
                                 src="assets/svg/html.svg"
                                 alt="Html Icon"
                                 width="16"
                                 height="16"
                             />
-                            contact.html
+                            form-no-js.html
+                        </a>
+                    </li>
+                    <li>
+                        <a href="pages/form-with-js.html" target="content-frame">
+                            <img
+                                src="assets/svg/html.svg"
+                                alt="Html Icon"
+                                width="16"
+                                height="16"
+                            />
+                            form-with-js.html
                         </a>
                     </li>
                 </ul>
